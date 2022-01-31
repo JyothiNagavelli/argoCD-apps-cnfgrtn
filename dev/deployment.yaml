@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app01
+  labels:
+     app: nginx
+  name: nginx
 spec:
-   selector:
-     matchLables:
-       app: app01
    replicas: 1
+   selector:
+     matchLabels:
+        app: nginx
    template:
      metadata:
        labels:
-         app: app01
+         app: nginx
      spec:
-      containers:
-      - name: app01
-        image: rithu1320/app01
-        ports:
-         containerPort: 8080
+       containers:
+       - image: nginx
+         name: nginx
