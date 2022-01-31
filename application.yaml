@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+     name: app01-argo
+     namespace: argocd
+spec:
+     project: default
+     source:
+       repoURL: https://github.com/abhi1-rithu2/argoCD-apps-cnfgrtn.git
+       targetRevision: HEAD
+       path: dev
+     destination:
+       server: https://kubernetes.default.svc
+       namespace: app01
+       
+     syncPolicy:
+       syncOptions:
+       - CreateNamespace=true
+       automated:
+         selfHeal: true
+         prune: true
