@@ -12,7 +12,7 @@ spec:
         url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.co
   template:
     metadata:
-      name: application
+      name: '{{cluster}}-nginx'
     spec:
       project: default
       source:
