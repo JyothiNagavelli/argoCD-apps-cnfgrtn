@@ -7,9 +7,9 @@ spec:
   - list:
       elements:
       - cluster: engineering-dev
-        url: https://kubernetes.default.svc
+        url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.com
       - cluster: engineering-prod
-        url: https://github.com/abhi1-rithu2/applicationset
+        url: https://vc-2orkbrkzadzbbqy6ks7z.apps.aws-mumbai-eks.klusternetes.com
   template:
     metadata:
       name: '{{cluster}}-guestbook'
