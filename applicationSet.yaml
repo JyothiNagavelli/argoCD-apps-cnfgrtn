@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: engineering-dev
+        url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.com
+      - cluster: engineering-prod
+        url:https://vc-2orkbrkzadzbbqy6ks7z.apps.aws-mumbai-eks.klusternetes.com
+      
+  template:
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      source:
+        repoURL: https://github.com/infra-team/cluster-deployments.git
+        targetRevision: HEAD
+        path: guestbook/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: guestbook
+      
+
+ 
