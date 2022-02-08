@@ -6,10 +6,10 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: engineering-dev
-        url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.com
-      - cluster: engineering-prod
-        url: https://vc-2orkbrkzadzbbqy6ks7z.apps.aws-mumbai-eks.klusternetes.com
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+      - cluster: Default
+        url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.co
   template:
     metadata:
       name: '{{cluster}}-guestbook'
