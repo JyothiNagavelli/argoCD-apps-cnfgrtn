@@ -8,8 +8,8 @@ spec:
       elements:
       - cluster: in-cluster
         url: https://kubernetes.default.svc
-      - cluster: Default
-        url: https://vc-a3ishe7qkxqiyeye6stt.apps.aws-mumbai-eks.klusternetes.co
+      - cluster: argo
+        url: https://vc-clq7gsqd0jevc3usitpk.apps.aws-mumbai-eks.klusternetes.com
   template:
     metadata:
       name: '{{cluster}}-nginx'
@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/abhi1-rithu2/argoCD-apps-cnfgrtn.git
         targetRevision: HEAD
-        path: dev
+        path: dev/{{cluster}}
       destination:
         server: '{{url}}'   
 
